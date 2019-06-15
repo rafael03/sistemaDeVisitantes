@@ -14,6 +14,10 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// bootstrap engine
+app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
+
+
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
