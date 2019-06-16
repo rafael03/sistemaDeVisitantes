@@ -7,21 +7,20 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
 var app = express();
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // bootstrap engine
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
-
+app.use(express.static(__dirname + '/node_modules/axios/dist'));
 
 app.use(favicon());
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
