@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>Login</td>
+                <td>Senha</td>
+            </tr>
+            
+            <% for(i=0; i < listaDeLogins.length; i++) {%>
+            <tr>
+                <td><%= listaDeLogins[i].id %></td>
+                <td><%= listaDeLogins[i].usuario %></td>
+                <td><%= listaDeLogins[i].senha %></td>
+            </tr>
+            <% } %>
+        <table
+    </body>
+</html>

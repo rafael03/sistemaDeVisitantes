@@ -1,20 +1,27 @@
-var express = require('express');
-var router = express.Router();
+// var express = require('express');
+// var router = express.Router();
+// var dbConection = require('../config/dbConection');
 
-router.get('/', function(req, res) {
-    res.sendfile('./public/views/index.html');
-})
+// var conection = dbConection();
 
-router.post('/realizarLogin', function(req, res) {
-    if(req.body.usuario == 'rafael') {
-        res.status(200).send('/telaInicial')
-    }
-    res.status(500).send('/')
-})
+// conection.query('select * from login', function(erro, result){
+//     console.log("result", result)
+// })
 
-router.get('/telaInicial', function(req, res) {
-    console.log("req", req.body)
-    res.sendfile('./public/views/telaPrincipal.html')
-})
+// router.get('/', function(req, res) {
+//     res.sendfile('./public/views/index.html');
+// })
 
-module.exports = router;
+// router.post('/realizarLogin', function(req, res) {
+//     if(req.body.usuario == 'rafael') {
+//         res.status(200).send('/telaInicial')
+//     }
+//     res.status(500).send('/')
+// })
+
+// router.get('/telaInicial', function(req, res) {
+//     console.log("req", req.body)
+//     res.sendfile('./public/views/telaPrincipal.html')
+// })
+
+// module.exports = router;
