@@ -14,7 +14,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.set('view engine', 'ejs');
 
-consign().include('routes').into(app)
+consign()
+    .include('routes')
+    .then('config/dbConection.js')
+    .then('models')
+    .into(app)
 
 // bootstrap engine
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
@@ -51,7 +55,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render('error.ejs', {
         message: err.message,
         error: {}
     });

@@ -1,16 +1,17 @@
 module.exports = function(app) {
-    var dbConection = require('../config/dbConection');
-    var conection = dbConection();
 
     app.get('/', function(req, res) {
         res.render('../views/login.ejs');
     });
 
     app.get('/listaLogins', function(req, res) {
-        conection.query('select * from login', function(erro, result){
+        var conection = app.config.dbConection();
+        var loginModel = app.models.loginModel;
+        loginModel.getLogin(conection, function(erro, result){
+            console.log(">>> 04")
             console.log("error", erro)
             console.log("result", result)
             res.render('../views/listaLogins.ejs', {listaDeLogins: result})
-        })
+        });
     })
 }
