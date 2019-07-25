@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <% if(validation) { %>
+            <ul>
+                <% for(var i = 0; i < validation.length; i++) { %>
+                    <li>
+                        <%= validation[i].msg %>
+                    </li>
+                <% } %>
+            </ul>
+        <% } %>
+        <form action="/login/salvar" method="POST">
+            Usuario: <input type="text" name="usuario" id="usuario">
+            Senha: <input type="password" name="senha" id="senha">
+            <input type="submit" value="Salvar">
+        </form>
+    </body>
+</html>
