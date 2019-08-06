@@ -19,8 +19,9 @@ app.set('view engine', 'ejs');
 
 consign()
     .include('routes')
-    .then('config/dbConection.js')
+    .include('config/mongoDbConnection.js')
     .then('models')
+    .then('controllers')
     .into(app)
 
 // bootstrap engine
