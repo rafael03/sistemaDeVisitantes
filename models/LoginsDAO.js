@@ -18,6 +18,19 @@ LoginsDAO.prototype.salvarNovoLogin = function(usuario) {
     });
 }
 
+LoginsDAO.prototype.getLogins = function() {
+    return new Promise(function(resolve) {
+        self._connection.open(function(err, mongoclient) {
+            mongoclient.collection("usuarios", function(err, collection) {
+                collection.find({}).toArray(function(err, result) {
+                    mongoclient.close();
+                    return resolve(result)
+                })
+            })
+        });
+    });
+}
+
 module.exports = function() {
     return LoginsDAO;
 }

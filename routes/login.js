@@ -15,4 +15,8 @@ module.exports = function(app) {
     app.get('/listaLogins', function(req, res) {
         app.controllers.login.listar(app, req, res)
     })
+
+    app.get('/inicio', function(req, res) {
+        app.controllers.login.telaInicial(app, req, res)
+    })
 }
